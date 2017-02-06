@@ -1,0 +1,33 @@
+{
+  "name": "api-messenger",
+  "version": "1.0.0",
+  "description": "Integrates API.AI with Facebook Messenger",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nczhu/api-messenger.git"
+  },
+  "keywords": [
+    "chatbot",
+    "nodejs",
+    "facebook",
+    "messenger",
+    "nlp",
+    "api.ai"
+  ],
+  "author": "Nicole Zhu <nicolezhuis@gmail.com> (nicole.ai)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nczhu/api-messenger/issues"
+  },
+  "homepage": "https://github.com/nczhu/api-messenger#readme",
+  "devDependencies": {
+    "apiai": "^3.0.3",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "request": "^2.79.0"
+  }
+}
