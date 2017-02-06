@@ -7,6 +7,7 @@ A light integration of Api.ai and Facebook Messenger for Node.js.
 	`npm install api-messenger`
 
 ## Usage
+```javascript
 	app.post('/webhook', function (req, res) {  
 	  var events = req.body.entry[0].messaging;
 	  events.forEach((event) => {
@@ -42,6 +43,7 @@ A light integration of Api.ai and Facebook Messenger for Node.js.
 
 	  apiai.end();
 	}
+```
 
 ## Tests
 	`npm test`
