@@ -1,5 +1,5 @@
 'use strict';
-var ApiFb = function () {};
+var ApiMessenger = function () {};
 const request = require('request');
 
 /**
@@ -9,7 +9,7 @@ const request = require('request');
  * @param {number} recipiendId
  * @param {JSON} response
  */ 
-ApiFb.prototype.sendToFb = function(recipientId, response){
+ApiMessenger.prototype.send = function(recipientId, response){
 	let fulfillment = response.result.fulfillment;
     let aiMessages = fulfillment.messages; //if api.ai gives special or multiple responses
     var replies = [];
@@ -39,7 +39,7 @@ ApiFb.prototype.sendToFb = function(recipientId, response){
 		replies.push(textReply);
     }
     replies = module.exports.scroll(replies); // checks if cards can be made into scrollable cards UI via messenger
-    module.exports.send(replies, 0);
+    module.exports.sendToFb(replies, 0);
 }
 
 /*
@@ -47,7 +47,7 @@ ApiFb.prototype.sendToFb = function(recipientId, response){
 	Simply formats API.AI's text response into
 	Facebook Messenger text response
 */
-ApiFb.prototype.text = function(recipientId, messageText){
+ApiMessenger.prototype.text = function(recipientId, messageText){
  	var messageData = {
     recipient: {
       id: recipientId
@@ -68,7 +68,7 @@ ApiFb.prototype.text = function(recipientId, messageText){
 	Facebook Messenger card response
 	TODO: implement default action
 */
-ApiFb.prototype.card = function(recipientId, message, payloadText) {
+ApiMessenger.prototype.card = function(recipientId, message, payloadText) {
 	var quickReplies =  formatCardButtons(message.buttons, payloadText); 
 	var messageData = {
 	    recipient: {
@@ -121,7 +121,7 @@ function formatCardButtons(aiReplies, payloadText){
 	Function accounts for multiple carousells, as separated
 	by non-card messages.
 */
-ApiFb.prototype.scroll = function(repliesArray) {
+ApiMessenger.prototype.scroll = function(repliesArray) {
 	var count = 0;
 	var newReplies = [];
 	repliesArray.forEach((reply) => {
@@ -146,7 +146,7 @@ ApiFb.prototype.scroll = function(repliesArray) {
 	Facebook Messenger's quick reply buttons
 */
 
-ApiFb.prototype.quickReply = function(recipientId, message, payloadText) {
+ApiMessenger.prototype.quickReply = function(recipientId, message, payloadText) {
   var quickReplies = [];
   var aiReplies = message.replies;
 
@@ -175,7 +175,7 @@ ApiFb.prototype.quickReply = function(recipientId, message, payloadText) {
 	Formats API.AI's image response into
 	Facebook Messenger image card
 */
-ApiFb.prototype.image = function(recipientId, aiMessage) {
+ApiMessenger.prototype.image = function(recipientId, aiMessage) {
 	var messageData = {
 		recipient: {
      		id: recipientId
@@ -199,7 +199,7 @@ ApiFb.prototype.image = function(recipientId, aiMessage) {
 	messenger. Waits for previous message to send before
 	sending the next message
 */
-ApiFb.prototype.send = function(messageData, i) {
+ApiMessenger.prototype.sendToFb = function(messageData, i) {
  var self = this;
  if (i < messageData.length) {
         request({
@@ -230,4 +230,4 @@ function isUrl(s) {
 // FUTURE TODO: allow users to set welcome text, initial screen, menus, etc.
 
 
-module.exports = new ApiFb();
+module.exports = new ApiMessenger();
