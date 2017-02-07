@@ -35,8 +35,8 @@ For a detailed set up, see examples folder.
 	`npm test`
 
 ## Contributing
-Add unit tests for new functions. Please refactor and feel free to restyle current formatting.
-TODO: allow users to set welcome text, initial screen, menus, etc.
-TODO: allow for API.AI to send custom payloads, e.g. sending files/attachements, etc.
-TODO: Enable callback functions
+Add unit tests for new functions. Please refactor and feel free to restyle current formatting. →→
+TODO: allow users to set welcome text, initial screen, menus, etc. →→
+TODO: allow for API.AI to send custom payloads, e.g. sending files/attachements, etc. →→
+TODO: Enable callback functions. →→
 
