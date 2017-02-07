@@ -4,7 +4,8 @@
   "description": "Integrates API.AI with Facebook Messenger",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
   "devDependencies": {
     "apiai": "^3.0.3",
     "chai": "^3.5.0",
+    "coveralls": "^2.11.16",
+    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "request": "^2.79.0"
   }
