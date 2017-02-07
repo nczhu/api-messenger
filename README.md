@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/nczhu/api-messenger.svg?branch=master)](https://travis-ci.org/nczhu/api-messenger)
+
 Integrates API.AI and Facebook Messenger
 =========
 
