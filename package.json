@@ -1,6 +1,6 @@
 {
   "name": "api-messenger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Integrates API.AI with Facebook Messenger",
   "main": "index.js",
   "scripts": {
