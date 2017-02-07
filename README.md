@@ -1,7 +1,7 @@
 Integrates API.AI and Facebook Messenger
 =========
 
-A light integration of Api.ai and Facebook Messenger for custom Node.js apps.
+A light integration of Api.ai and Messenger for custom Node.js apps.
 
 ## Installation 
 	`npm install api-messenger`
@@ -13,7 +13,7 @@ Instantiate api_messenger
 var apiMessenger = require('api-messenger');
 ```
 
-Route messages to API.AI. Send its responses back to messenger JSON
+Route Fb messages to API.AI. Directly send API.AI responses to Fb Messenger.
 ```javascript
 /* Sending message to api.ai and processing the response */
 apiai.on('response', (response) => { 
@@ -21,18 +21,22 @@ apiai.on('response', (response) => {
 });
 ```
 
-Extensible functions: only formats messenger responses: 
+More customisable: functions that format API.AI response into Messenger JSON.
 ```javascript
 apiMessenger.text(recipientId, aiMessage.speech);
-apiMessenger.card(recipientId, aiMessage, payload);
-apiMessenger.quickReply(recipientId, aiMessage, payload);
+apiMessenger.card(recipientId, aiMessage, developer_payload);
+apiMessenger.quickReply(recipientId, aiMessage, developer_payload);
 etc...
 ```
  
-For a detailed implementation, see examples folder.
+For a detailed set up, see examples folder.
 
 ## Tests
 	`npm test`
 
 ## Contributing
 Add unit tests for new functions. Please refactor and feel free to restyle current formatting.
+TODO: allow users to set welcome text, initial screen, menus, etc.
+TODO: allow for API.AI to send custom payloads, e.g. sending files/attachements, etc.
+TODO: Enable callback functions
+
