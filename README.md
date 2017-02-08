@@ -38,7 +38,7 @@ For a detailed set up, see examples folder.
 
 ## Contributing
 Add unit tests for new functions. Please refactor and feel free to restyle current formatting.  
-TODO: allow users to set welcome text, initial screen, menus, etc.  
-TODO: allow for API.AI to send custom payloads, e.g. sending files/attachements, etc.  
-TODO: Enable callback functions.  
+Future improvement: allow users to set welcome text, initial screen, menus, etc.  
+Future improvement: allow for API.AI to send custom payloads, e.g. sending files/attachements, etc. 
+Future improvement: Enable callback functions.  
 
